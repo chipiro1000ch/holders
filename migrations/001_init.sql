@@ -1,0 +1,2 @@
+-- Kept for reference. Canonical schema for Supabase lives in supabase/schema.sql
+-- Run supabase/schema.sql in the Supabase SQL Editor.

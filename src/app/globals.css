@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #121820;
+  --ink-soft: #3a4450;
+  --stone: #e7e9ec;
+  --stone-deep: #d5dae0;
+  --paper: #f4f5f7;
+  --metal: #c4a574;
+  --metal-deep: #9a7a4f;
+  --line: rgba(18, 24, 32, 0.12);
+  --shadow: rgba(18, 24, 32, 0.08);
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-stone: var(--stone);
+  --color-stone-deep: var(--stone-deep);
+  --color-paper: var(--paper);
+  --color-metal: var(--metal);
+  --color-metal-deep: var(--metal-deep);
+  --color-line: var(--line);
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-cinzel);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(196, 165, 116, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 100% 0%, rgba(90, 110, 130, 0.12), transparent 50%),
+    linear-gradient(180deg, #eef0f3 0%, var(--paper) 42%, #ebece8 100%);
+  background-attachment: fixed;
+  font-family: var(--font-outfit), "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes brand-in {
+  from {
+    opacity: 0;
+    letter-spacing: 0.45em;
+  }
+  to {
+    opacity: 1;
+    letter-spacing: 0.28em;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.55s ease both;
+}
+
+.animate-brand {
+  animation: brand-in 0.9s ease both;
+}
+
+.metal-line {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 165, 116, 0.7),
+    transparent
+  );
+}
+
+.feed-shell {
+  width: min(540px, 100%);
+  margin: 0 auto;
+}
+
+.post-media {
+  position: relative;
+  overflow: hidden;
+  background: #1a2028;
+  aspect-ratio: 1 / 1;
+}
+
+.post-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.post-media:hover img {
+  transform: scale(1.03);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0 1.25rem;
+  border: 0;
+  border-radius: 2px;
+  background: var(--ink);
+  color: #f7f4ee;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #243040;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  padding: 0.85rem 0.95rem;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field:focus {
+  border-color: rgba(196, 165, 116, 0.8);
+  box-shadow: 0 0 0 3px rgba(196, 165, 116, 0.15);
+}
+
+.sample-banner {
+  border: 1px solid rgba(196, 165, 116, 0.35);
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0.7),
+    rgba(196, 165, 116, 0.12),
+    rgba(255, 255, 255, 0.7)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 8s linear infinite;
+}
